@@ -28,11 +28,7 @@ function monkeyPatchMediaDevices() {
       constraints.video &&
       (constraints.video as MediaTrackConstraints).deviceId
     ) {
-      if (
-        (constraints.video as MediaTrackConstraints).deviceId === 'virtual' ||
-        ((constraints.video as MediaTrackConstraints).deviceId as any).exact ===
-          'virtual'
-      ) {
+      if ((constraints.video as MediaTrackConstraints).deviceId === 'virtual') {
         // This constraints could mimick closely the request.
         // Also, there could be a preferred webcam on the options.
         // Right now it defaults to the predefined input.
